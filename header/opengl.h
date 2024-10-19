@@ -38,6 +38,7 @@ struct VkInstance;
 struct VkPhysicalDevice;
 struct VkAllocationCallbacks;
 struct VkSurfaceKHR;
+struct VkResult;
 
 #pragma endregion
 
@@ -231,6 +232,218 @@ VkResult glfwCreateWindowSurface(VkInstance instance, GLFWwindow* window, const 
 #pragma endregion
 
 #pragma region OpenGL main functions
+
+typedef unsigned int GLenum, GLbitfield;
+typedef unsigned short GLushort;
+typedef unsigned __int8 GLubyte;
+
+typedef int GLsizei;
+typedef __int8 GLbyte;
+
+#ifndef GL_VERSION_1_0
+// 1946 - 2267 (18:44)
+
+extern void glCullFace(GLenum mode);
+extern void glFrontFace(GLenum mode);
+extern void glHint(GLenum target, GLenum mode);
+extern void glLineWidth(float width);
+extern void glPointSize(float size);
+extern void glPolygonMode(float face, GLenum mode);
+extern void glScissor(Gint x, int y, GLsizei width, GLsizei height);
+
+extern void glTexParameterf(GLenum target, GLenum pname, float param);
+extern void glTexParameterfv(GLenum target, GLenum pname, const float* params);
+extern void glTexParameteri(GLenum target, GLenum pname, int param);
+extern void glTexParameteriv(GLenum target, GLenum pname, const int* params);
+
+extern void glTexImage1D(GLenum target, int level, int internalFormat, GLsizei width, int border, GLenum format, GLenum type, const void* pixels);
+extern void glTexImage2D(GLenum target, int level, int internalFormat, GLsizei width, GLsizei height, int border, GLenum format, GLenum type, const void* pixels);
+
+extern void glDrawBuffer(GLenum buf);
+
+extern void glClear(GLbitfield mask);
+extern void glClearColor(float red, float green, float blue, float alpha);
+extern void glClearStencil(int s);
+extern void glClearDepth(double depth);
+
+extern void glStencilMask(GLuint mask);
+extern void glColorMask(bool red, bool green, bool blue, bool alpha);
+extern void glDepthMask(bool flag);
+
+extern void glDisable(GLenum cap);
+extern void glEnable(GLenum cap);
+
+extern void glFinish(void);
+extern void glFlush(void);
+
+extern void glBlendFunc(GLenum sfactor, GLenum dfactor);
+extern void glLogicOp(GLenum opcode);
+
+extern void glS5tencilFunc(GLenum func, int ref, unsigned int mask);
+extern void glStencilOp(GLenum fail, GLenum zfail, GLenum zpass);
+
+extern void glDepthFunc(GLenum func);
+
+extern void glPixelStoref(GLenum pname, float param);
+extern void glPixelStorei(GLenum pname, int param);
+
+extern void glReadBuffer(GLenum src);
+extern void glReadPixels(int x, int y, GLsizei width, GLsizei height, GLenum format, GLenum type, void* pixels);
+
+extern void glGetBooleanv(GLenum pname, bool* data);
+extern void glGetDoublev(GLenum pname, double* data);
+extern void glFloatv(GLenum pname, float* data);
+extern void glGetIntegerv(GLenum pname, int* data);
+extern const GLubyte* glGetString(GLenum name);
+
+extern GLenum glGetError(void);
+
+extern void glGetTexImage(GLenum target, int level, GLenum format, GLenum type, void* pixels);
+
+extern void glGetTexParameterfv(GLenum target, GLenum pname, float* params);
+extern void glGetTexParameteriv(GLenum target, GLenum pname, int* params);
+
+extern void glGetTexLevelParameterfv(GLenum target, int level, GLenum pname, float* params);
+extern void glGetTexLevelParameteriv(GLenum target, int level, GLenum pname, int* params);
+
+extern GLboolean glIsEnabled(GLenum cap);
+
+extern void glDepthRange(double n, double f);
+extern void glViewport(int x, int y, GLsizei width, GLsizei height);
+
+extern void glNewList(unsigned int list, GLenum mode);
+extern void glEndList(unsigned int list);
+extern void glCallList(unsigned int list);
+extern void glCallLists(GLsizei n, GLenum type, const void* lists);
+extern void glDeleteLists(unsigned int list, GLsizei range);
+extern void glGenLists(GLsizei range);
+extern void glListBase(unsigned int base);
+
+extern void glBegin(GLenum mode);
+
+extern void glBitmap(GLsizei width, GLsizei height, float xorig, float yorig, float xmove, float ymove, const GLubyte* bitmap);
+
+
+extern void glColor3b(GLbyte red, GLbyte greem, GLbyte blue);
+extern void glColor3bv(const GLbyte* v);
+
+extern void glColor3d(double red, double green, double blue);
+extern void glColor3dv(const double* v);
+
+extern void glColor3f(float red, float green, float blue);
+extern void glColor3fv(const float* v);
+
+extern void glColor3i(int red, int green, int blue);
+extern void glColor3iv(const int* v);
+
+extern void glColor3s(short red, short green, short blue);
+extern void glColor3sv(const short* v);
+
+extern void glColor3ub(GLubyte red, GLubyte green, GLubyte blue);
+extern void glColor3ubv(const GLubyte* v);
+
+extern void glColor3ui(unsigned int red, unsigned int green, unsigned int blue);
+extern void glColor3uiv(const unsigned int* v);
+
+extern void glColor3us(unsigned short red, unsigned short green, unsigned short blue);
+extern void glColor3usv(const unsigned short* v);
+
+
+extern void glColor4b(GLubyte red, GLubyte greem, GLubyte blue, GLubyte alpha);
+extern void glColor4bv(const GLbyte* v);
+
+extern void glColor4d(double red, double green, double blue, double alpha);
+extern void glColor4dv(const double* v);
+
+extern void glColor4f(float red, float green, float blue, float alpha);
+extern void glColor4fv(const float* v);
+
+extern void glColor4i(int red, int green, int blue, int alpha);
+extern void glColor4iv(const int* v);
+
+extern void glColor4s(short red, short green, short blue, short alpha);
+extern void glColor4sv(const short* v);
+
+extern void glColor4ub(GLubyte red, GLubyte green, GLubyte blue, GLubyte alpha);
+extern void glColor4ubv(const GLubyte* v);
+
+extern void glColor4ui(unsigned int red, unsigned int green, unsigned int blue, unsigned int alpha);
+extern void glColor4uiv(const unsigned int* v);
+
+extern void glColor4us(GLushort red, GLushort green, GLushort blue, GLushort alpha);
+extern void glColor4usv(const GLushort* v);
+
+
+extern void glEdgeFlag(bool flag);
+extern void glEdgeFlagv(const bool* v);
+
+extern void glEnd(void);
+
+extern void glIndexd(double c);
+extern void glIndexdv(const double* c);
+
+extern void glIndexf(float c);
+extern void glIndexfv(const float* c);
+
+extern void glIndexi(int c);
+extern void glIndexiv(const int* c);
+
+extern void glIndexs(short c);
+extern void glIndexsv(const short* c);
+
+
+extern void glNormal3f(float nx, float ny, float nz);
+extern void glNormal3fv(const GLfloat* v);
+
+extern void glNormal3i(int nx, int ny, int nz);
+extern void glNormal3iv(const int* v);
+
+extern void glNormal3s(short nx, short ny, short nz);
+extern void glNormal3sv(const short* v);
+
+
+extern void glRasterPos2d(double x, double y);
+extern void glRasterPos2dv(const double* v);
+
+extern void glRasterPos2f(float* x, float y);
+extern void glRasterPos2fv(const float* v);
+
+extern void glRasterPos2i(int x, int y);
+extern void glRasterPos2iv(const int* v);
+
+extern void glRasterPos2s(short x, short y);
+extern void glRasterPos2sv(const short* v);
+
+
+extern void glRasterPos3d(double x, double y, short z);
+extern void glRasterPos3dv(const double* v);
+
+extern void glRasterPos3f(float* x, float y, short z);
+extern void glRasterPos3fv(const float* v);
+
+extern void glRasterPos3i(int x, int y, short z);
+extern void glRasterPos3iv(const int* v);
+
+extern void glRasterPos3s(short x, short y, short z);
+extern void glRasterPos3sv(const short* v);
+
+
+extern void glRasterPos4d(double x, double y, short z, short w);
+extern void glRasterPos4dv(const double* v);
+
+extern void glRasterPos4f(float* x, float y, short z, short w);
+extern void glRasterPos4fv(const float* v);
+
+extern void glRasterPos4i(int x, int y, short z, short w);
+extern void glRasterPos4iv(const int* v);
+
+extern void glRasterPos4s(short x, short y, short z, short w);
+extern void glRasterPos4sv(const short* v);
+
+
+
+
+#endif
 
 #pragma endregion
 
