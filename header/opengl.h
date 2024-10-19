@@ -241,7 +241,6 @@ typedef int GLsizei;
 typedef __int8 GLbyte;
 
 #ifndef GL_VERSION_1_0
-// 1946 - 2267 (18:44)
 
 extern void glCullFace(GLenum mode);
 extern void glFrontFace(GLenum mode);
